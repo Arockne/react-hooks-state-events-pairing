@@ -6,11 +6,15 @@ import Comments from './Comments'
 function App() {
   const [commentHider, setCommentHider] = useState(false)
 
+  function handleHidingComment() {
+    setCommentHider(!commentHider)
+  }
+
   return (
     <div className="App">
-      <Video video={video}/>
+      <Video video={video} hideComment={commentHider} onHidingComment={handleHidingComment}/>
       <hr />
-      <Comments comments={video.comments}/>
+      {commentHider ? null : <Comments comments={video.comments} hideComments={commentHider}/>}
     </div>
   );
 }

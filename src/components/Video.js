@@ -10,7 +10,10 @@ function Video({
     createdAt, 
     upvotes, 
     downvotes
-  } }) {
+  },
+  hideComment,
+  onHidingComment
+}) {
   return (
     <div>
       <Frame embedUrl={embedUrl}/>
@@ -22,7 +25,7 @@ function Video({
         downVotes={downvotes}
       />
       <br />
-      <button>Hide Comments</button>
+      <button onClick={onHidingComment}>{hideComment ? 'Show Comments' : 'Hide Comments'}</button>
     </div>
   )
 }
